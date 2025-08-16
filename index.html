@@ -34,10 +34,13 @@
       background:linear-gradient(to bottom, rgba(11,15,26,.9), rgba(11,15,26,.55));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-    .brand .logo{height:34px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
-    .brand .name{font-weight:700;letter-spacing:.2px;white-space:nowrap}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;text-decoration:none}
+    .brand .logo{
+      height:46px;               /* ⬅ bigger logo on desktop */
+      width:auto; display:block;
+      filter:drop-shadow(0 1px 0 rgba(0,0,0,.25));
+    }
     nav a{color:var(--ink);text-decoration:none;margin-left:18px;opacity:.9}
     nav a:hover{opacity:1}
 
@@ -89,17 +92,16 @@
     @media (max-width:900px){
       .two-col,.grid-3,.contact-wrap{grid-template-columns:1fr}
       nav a{display:none}
-      .brand .name{font-size:15px}
-      .brand .logo{height:30px}
+      .brand .logo{height:36px}   /* ⬅ slightly smaller on mobile */
     }
   </style>
 </head>
 <body>
   <header id="top">
     <div class="container nav">
+      <!-- Logo only (no text) -->
       <a class="brand" href="#top" aria-label="Swift Stone Investments Home">
         <img class="logo" src="assets/swift_stone_logo_v2.png" alt="Swift Stone Investments logo" />
-        <span class="name">Swift Stone Investments</span>
       </a>
       <nav>
         <a href="#about">About</a>
