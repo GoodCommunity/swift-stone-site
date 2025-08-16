@@ -14,12 +14,15 @@
       --ink:#e9edf5; --muted:#a9b3c7;
       --brand:#6ee7f0; --brand2:#7c8cf8; --ring:rgba(124,140,248,.35)
     }
-    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink); background: radial-gradient(1200px 600px at 10% -20%, #162243 25%, transparent 55%) no-repeat,
-                        radial-gradient(1200px 600px at 110% -10%, #0f2036 20%, transparent 55%) no-repeat,
-                        var(--bg);
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, #162243 25%, transparent 55%) no-repeat,
+        radial-gradient(1200px 600px at 110% -10%, #0f2036 20%, transparent 55%) no-repeat,
+        var(--bg);
       line-height:1.55;
     }
     .container{max-width:980px;margin:0 auto;padding:0 20px}
@@ -31,10 +34,12 @@
       background:linear-gradient(to bottom, rgba(11,15,26,.9), rgba(11,15,26,.55));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:700;letter-spacing:.2px}
-    .nav a{color:var(--ink);text-decoration:none;margin-left:18px;opacity:.9}
-    .nav a:hover{opacity:1}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+    .brand .logo{height:34px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
+    .brand .name{font-weight:700;letter-spacing:.2px;white-space:nowrap}
+    nav a{color:var(--ink);text-decoration:none;margin-left:18px;opacity:.9}
+    nav a:hover{opacity:1}
 
     /* Buttons */
     .btn{
@@ -80,16 +85,22 @@
 
     footer{border-top:1px solid rgba(255,255,255,.08);padding:24px 0;margin-top:20px;background:rgba(0,0,0,.12)}
     .foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
     @media (max-width:900px){
       .two-col,.grid-3,.contact-wrap{grid-template-columns:1fr}
-      .nav a{display:none}
+      nav a{display:none}
+      .brand .name{font-size:15px}
+      .brand .logo{height:30px}
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="top">
     <div class="container nav">
-      <div class="brand">Swift Stone Investments</div>
+      <a class="brand" href="#top" aria-label="Swift Stone Investments Home">
+        <img class="logo" src="assets/swift_stone_logo_v2.png" alt="Swift Stone Investments logo" />
+        <span class="name">Swift Stone Investments</span>
+      </a>
       <nav>
         <a href="#about">About</a>
         <a href="#how">How We Work</a>
@@ -113,14 +124,14 @@
     <div class="container two-col">
       <div>
         <h2>About</h2>
-        <p class="lead"><strong>Swift Stone Investments LLC</strong> focuses on creating win–win deals for sellers and their agents. In today’s lending environment, we solve financing challenges with clean, simple structures that close.</p>
+        <p class="lead"><strong>Swift Stone Investments LLC</strong> focuses on creating win-win deals for sellers and their agents. In today’s lending environment, we solve financing challenges with clean, simple structures that close.</p>
       </div>
       <div class="card">
         <h3>What We Offer</h3>
         <ul class="check">
           <li>Flexible structures (seller financing, DSCR, cash)</li>
           <li><strong>Agent commissions paid in full at closing</strong></li>
-          <li>Clear communication & quick decisions</li>
+          <li>Clear communication &amp; quick decisions</li>
           <li>Simple, professional paperwork</li>
         </ul>
       </div>
@@ -155,7 +166,7 @@
         <p class="lead">Prefer email? <a href="mailto:info@swiftstoneproperties.com">info@swiftstoneproperties.com</a></p>
       </div>
 
-      <!-- CONTACT FORM (Formspree – replace action URL) -->
+      <!-- CONTACT FORM (replace action with your Formspree endpoint) -->
       <form action="https://formspree.io/f/your-form-id" method="POST" class="card">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <label><span>First Name</span><input type="text" name="first_name" required></label>
@@ -166,7 +177,7 @@
         <label><span>Message / Property Info</span><textarea name="message" rows="5" placeholder="Address, rents, timing, anything helpful…"></textarea></label>
 
         <!-- spam honeypot -->
-        <input type="text" name="_gotcha" style="display:none">
+        <input type="text" name="_gotcha" style="display:none" autocomplete="off">
 
         <!-- optional: email subject & redirect after submit -->
         <input type="hidden" name="_subject" value="New Inquiry – Swift Stone Investments">
