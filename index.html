@@ -45,4 +45,88 @@
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
     .check{list-style:none;padding:0}
-    .
+    .check li{margin:8px 0;padding-left:24px;position:relative}
+    .check li::before{content:"✓";position:absolute;left:0;color:#55d3a6}
+
+    /* Contact */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:28px}
+    input,textarea{width:100%;background:#0c1324;border:1px solid rgba(255,255,255,.08);color:var(--ink);
+      border-radius:12px;padding:12px;font:inherit}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:24px 0;margin-top:20px;text-align:center}
+    @media (max-width:900px){
+      .nav{height:100px}
+      .brand .logo{height:80px}  /* still large on mobile but shrinks */
+      nav a{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="container nav">
+      <a class="brand" href="#top"><img class="logo" src="assets/swift_stone_logo_v2.png" alt="Swift Stone Investments logo"></a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#how">How We Work</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>We Buy Properties Fast, Fair, and Hassle-Free</h1>
+      <p class="sub">Helping sellers and agents close quickly with flexible solutions that work in today’s market.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div>
+        <h2>About</h2>
+        <p><strong>Swift Stone Investments LLC</strong> focuses on creating win-win deals for sellers and their agents. In today’s lending environment, we solve financing challenges with clean, simple structures that close.</p>
+      </div>
+      <div class="card">
+        <h3>What We Offer</h3>
+        <ul class="check">
+          <li>Flexible structures (seller financing, DSCR, cash)</li>
+          <li><strong>Agent commissions paid in full at closing</strong></li>
+          <li>Clear communication & quick decisions</li>
+          <li>Simple, professional paperwork</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section section-muted">
+    <div class="container">
+      <h2>How We Work</h2>
+      <div class="grid-3">
+        <div class="card"><h4>1) Quick Review</h4><p>Send basic property details/rent roll; we underwrite same day whenever possible.</p></div>
+        <div class="card"><h4>2) Clear Offer</h4><p>Clean terms: price, down payment, monthly payment, balloon—tailored to the asset.</p></div>
+        <div class="card"><h4>3) Smooth Closing</h4><p>Close through a licensed title company. <strong>Agent commissions paid at closing.</strong></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact-wrap">
+      <div>
+        <h2>Contact</h2>
+        <p>Have a listing or a question? Drop your info and we’ll get right back to you.</p>
+        <p>Email: <a href="mailto:info@swiftstoneproperties.com">info@swiftstoneproperties.com</a></p>
+      </div>
+      <form>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Message / Property Info"></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Swift Stone Investments LLC</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
